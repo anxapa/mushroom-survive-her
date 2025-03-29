@@ -1,7 +1,9 @@
 extends Node
-class_name GameManager
 
-@export var player : CharacterBody2D
+var player : CharacterBody2D
 
-func get_player_position() -> Vector2:
-	return player.global_position
+func get_player() -> CharacterBody2D:
+	return player
+
+func set_player(playerBody: CharacterBody2D):
+	player = playerBody
