@@ -7,6 +7,7 @@
 radius = 12.8062
 
 [node name="Shooter Bullet" type="Node2D"]
+modulate = Color(0.624797, 0, 0.16587, 1)
 top_level = true
 script = ExtResource("1_ph5j6")
 speed = 500
