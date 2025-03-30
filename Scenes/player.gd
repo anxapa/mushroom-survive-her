@@ -1,10 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
+@export var invincible_time := 1.0
 @export var speed = 900;
+
 var health := 3
+var is_invincible := false
+
 
 func _ready() -> void:
+	SignalBus.player_death.connect(_on_player_death)
 	GameManager.set_player(self)
 
 func _physics_process(delta: float) -> void:
@@ -36,9 +41,22 @@ func movement(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damage: int) -> void:
-	health -= damage
+	if not is_invincible:
+		health -= damage
+		if health <= 0:
+			SignalBus.player_death.emit()
+		move_and_slide()
+		is_invincible = true
+		await get_tree().create_timer(invincible_time).timeout
+		is_invincible = false
+
+func _on_player_death() -> void:
+	visible = false
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	take_damage((body as Enemy).contact_damage)
-	
-	
+	# if enemy is still touching player after invincibility timeout, deal damage again
+	await get_tree().create_timer(invincible_time).timeout
+	if ($Hurtbox.has_overlapping_bodies()):
+		if ($Hurtbox.get_overlapping_bodies()[0] == body):
+			_on_hurtbox_body_entered(body)
