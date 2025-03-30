@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq8370h7fiv52"]
+
+[ext_resource type="Script" uid="uid://2ppmfvlkgy3f" path="res://Scripts/Abilities/ability_stun_spore.gd" id="1_3t3br"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x2q4"]
+radius = 200.0
+
+[node name="StunSporeAbility" type="Node2D"]
+script = ExtResource("1_3t3br")
+is_activable = true
+max_upgrade_level = 5
+cooldown = 5.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7x2q4")

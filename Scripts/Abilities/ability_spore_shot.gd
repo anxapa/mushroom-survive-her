@@ -1,21 +1,16 @@
 extends Ability
 
+@export var damage := 1.0
 @export var range := 200
 @onready var _area2D := $Area2D
 
 const bullet_scene = preload("res://Scenes/Abilities/Spore Shot Bullet.tscn")
 
 func _ready():
-	cooldown = 0.4
-	max_upgrade_level = 5
 	change_range(range)
 
-func _process(delta: float) -> void:
-	if current_cooldown_time <= 0:
-		check_bodies()
-		current_cooldown_time = cooldown
-	else:
-		current_cooldown_time -= delta
+func activate_ability() -> void:
+	check_bodies()
 
 ## Selects enemy closest to player to shoot to.
 func check_bodies() -> void:
@@ -46,4 +41,5 @@ func shoot(enemy: Node2D) -> void:
 	var bullet = bullet_scene.instantiate()
 	add_child(bullet)
 	bullet.global_position = global_position
+	bullet.damage_amount = damage
 	bullet.set_direction(enemy.global_position - global_position)

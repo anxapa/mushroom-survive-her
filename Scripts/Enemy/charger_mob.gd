@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		charge_speed -= charge_speed/5.0 * charge_time * delta
 		if global_position == target or charge_speed < base_speed:
 			(charge_end as SceneTreeTimer).set_time_left(0)
+
 func charge() -> void:
 	can_charge = false
 	speed = 50
