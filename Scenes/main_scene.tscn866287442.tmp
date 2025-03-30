@@ -232,7 +232,6 @@ texture = ExtResource("4_6ev3c")
 centered = false
 
 [node name="Panel" type="Panel" parent="Camera2D/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25

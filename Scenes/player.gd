@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-
+@export var speed := 400
 @export var invincible_time := 1.0
 var max_health := 10
 var health := 3
