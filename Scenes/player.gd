@@ -1,11 +1,13 @@
 extends CharacterBody2D
 @export var speed = 900;
+var health := 3
 
 func _ready() -> void:
 	GameManager.set_player(self)
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	print(health)
 
 func movement(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -31,3 +33,11 @@ func movement(delta: float) -> void:
 		#animated_sprite.play("look_left")
 		#interact_area2D.position = Vector2(-64, 0)
 	move_and_slide()
+	
+func take_damage(damage: int) -> void:
+	health -= damage
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	take_damage((body as Enemy).contact_damage)
+	
+	

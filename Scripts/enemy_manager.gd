@@ -1,11 +1,15 @@
 extends Node2D
-var resolution = Vector2(1920, 1080)
 var player = GameManager.get_player()
+const ant = preload("res://scenes/Enemy/ant_mob.tscn")
 
 func _ready() -> void:
+	spawn_mob()
+	
+func _physics_process(delta: float) -> void:
 	pass
 	
 func spawn_mob() -> void:
-	var angle = Vector2(randf_range(-1, 1), randf_range(-1, 1))
-	var spawn_position = angle*resolution.dot(resolution)
+	for n in 10:
+		var ant = ant.instantiate()
+		add_child(ant)
 	

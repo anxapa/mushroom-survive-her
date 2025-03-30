@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bimngs7hwmiyc"]
+[gd_scene load_steps=5 format=3 uid="uid://bimngs7hwmiyc"]
 
 [ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/CameraManager.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
 [ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/enemy_manager.gd" id="3_jv6wh"]
+[ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
 
 [node name="Main Scene" type="Node2D"]
 
@@ -15,3 +16,23 @@ script = ExtResource("1_6l7je")
 
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("3_jv6wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(328.048, 202.372)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_x6ack")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1516.45, 218.878)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_x6ack")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1436.07, 676.249)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_x6ack")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(517.367, 670.542)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_x6ack")
