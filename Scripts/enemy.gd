@@ -1,9 +1,13 @@
 extends RigidBody2D
 
 class_name Enemy
-@export var max_health := 6
-@export var speed = 5
+@export var max_health := 6.0
+@export var speed = 300.0
+@export var nutrient_point := 1.0
 
+var base_speed = speed
+
+var can_move := true
 var resolution = DisplayServer.window_get_size()
 var current_health := max_health
 var player = GameManager.get_player()
@@ -17,10 +21,24 @@ func _ready() -> void:
 	global_position = angle * resolution.length()/closeness + player.global_position
 
 func _physics_process(delta: float) -> void:
-	global_position = global_position.move_toward(player.global_position, speed)
+	if can_move:
+		global_position = global_position.move_toward(player.global_position, speed * delta)
 	
-func take_damage(damage: int) -> void:
+func take_damage(damage: float) -> void:
 	current_health -= damage
 	
-	if current_health == 0:
-		queue_free()
+	if current_health <= 0:
+		_on_enemy_death()
+
+func paralyze(time: float) -> void:
+	can_move = false
+	modulate = Color.GREEN
+	
+	await get_tree().create_timer(time).timeout
+	
+	can_move = true
+	modulate = Color.WHITE
+
+func _on_enemy_death() -> void:
+	SignalBus.spawn_nutrient.emit(nutrient_point, global_position)
+	queue_free()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7u60w64n7wo0"]
+
+[ext_resource type="Script" uid="uid://bca7pn3pf6ovr" path="res://Scripts/Abilities/ability_boom_shroom.gd" id="1_acrhq"]
+
+[node name="BoomShroomAbility" type="Node2D"]
+script = ExtResource("1_acrhq")

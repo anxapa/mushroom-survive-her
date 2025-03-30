@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmb3rtd57vb27"]
+[gd_scene load_steps=3 format=3 uid="uid://dmb3rtd57vb27"]
+
+[ext_resource type="Script" uid="uid://cghgxh5m3ejll" path="res://Scripts/Abilities/ability_mushroom_cloud.gd" id="1_fbmas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2bly"]
+radius = 960.0
 
 [node name="MushroomCloudAbility" type="Node2D"]
+script = ExtResource("1_fbmas")
+is_activable = true
+max_upgrade_level = 5
+cooldown = 10.0
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_l2bly")
