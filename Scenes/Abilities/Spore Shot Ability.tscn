@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://qbd5exldv6vp"]
+
+[ext_resource type="Script" uid="uid://brux27kjor3q4" path="res://Scripts/Abilities/ability_spore_shot.gd" id="1_rjmdd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6mur"]
+radius = 250.0
+
+[node name="SporeShotAbility" type="Node2D"]
+script = ExtResource("1_rjmdd")
+range = 300
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c6mur")

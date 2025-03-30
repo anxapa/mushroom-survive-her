@@ -1,11 +1,13 @@
 extends Node2D
 class_name Ability
 
-var is_activable : bool
+@export var is_activable : bool
+
 var upgrade_level := 1
-var max_upgrade_level : int
-var cooldown : float
+@export var max_upgrade_level : int
+
 var current_cooldown_time : float
+@export var cooldown : float
 
 ## Upgrades the ability.
 func upgrade() -> void:

@@ -19,3 +19,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	global_position = global_position.move_toward(player.global_position, speed)
 	
+func take_damage(damage: int) -> void:
+	current_health -= damage
+	
+	if current_health == 0:
+		queue_free()

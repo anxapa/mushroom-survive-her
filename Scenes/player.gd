@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @export var speed = 900;
 var health := 3
 
@@ -7,7 +9,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	print(health)
 
 func movement(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.

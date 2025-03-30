@@ -1,0 +1,50 @@
+extends Ability
+
+@export var range := 200
+@onready var _area2D := $Area2D
+
+const bullet_scene = preload("res://Scenes/Abilities/Spore Shot Bullet.tscn")
+
+func _ready():
+	cooldown = 0.4
+	max_upgrade_level = 5
+	change_range(range)
+
+func _process(delta: float) -> void:
+	if current_cooldown_time <= 0:
+		check_bodies()
+		current_cooldown_time = cooldown
+	else:
+		current_cooldown_time -= delta
+
+## Selects enemy closest to player to shoot to.
+func check_bodies() -> void:
+	var bodies : Array[Node2D] = _area2D.get_overlapping_bodies()
+	var min_distance := 1e99
+	var min_distance_enemy : Node2D
+	
+	if not bodies:
+		return
+	
+	# Finds enemy with the least distance to the player.
+	for body in bodies:
+		print(body)
+		if body is Enemy:
+			var distance := global_position.distance_to(body.global_position)
+			if distance < min_distance:
+				min_distance = distance
+				min_distance_enemy = body
+	
+	# Does not shoot if there are no bodies nearby.
+	if min_distance_enemy:
+		shoot(min_distance_enemy)
+
+func change_range(range_radius: float) -> void:
+	$Area2D/CollisionShape2D.shape.radius = range_radius
+
+## Shoots an enemy.
+func shoot(enemy: Node2D) -> void:
+	var bullet = bullet_scene.instantiate()
+	add_child(bullet)
+	bullet.global_position = global_position
+	bullet.set_direction(enemy.global_position - global_position)
