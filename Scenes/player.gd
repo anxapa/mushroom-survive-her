@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var invincible_time := 1.0
-@export var speed = 900;
+@export var speed = 400;
 
 var health := 3
 var is_invincible := false

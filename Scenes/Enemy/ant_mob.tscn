@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dubmxuxmeq7q7" path="res://Sprites/image.jpg" id="2_hfs7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfs7o"]
-radius = 97.1854
+radius = 48.6
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
@@ -17,7 +17,7 @@ angular_damp = 1.0
 script = ExtResource("1_ty7pv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.026, 0.026)
 texture = ExtResource("2_hfs7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

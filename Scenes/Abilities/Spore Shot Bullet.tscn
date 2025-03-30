@@ -8,6 +8,7 @@ radius = 12.0
 height = 42.0
 
 [node name="SporeShotBullet" type="Node2D"]
+top_level = true
 script = ExtResource("1_tkea6")
 speed = 500
 bullet_owner = "Player"

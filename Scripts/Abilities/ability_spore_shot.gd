@@ -28,7 +28,6 @@ func check_bodies() -> void:
 	
 	# Finds enemy with the least distance to the player.
 	for body in bodies:
-		print(body)
 		if body is Enemy:
 			var distance := global_position.distance_to(body.global_position)
 			if distance < min_distance:

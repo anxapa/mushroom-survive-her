@@ -2,7 +2,8 @@ extends RigidBody2D
 
 class_name Enemy
 @export var max_health := 6
-@export var speed = 5
+@export var speed = 300.0
+var base_speed = speed
 
 var resolution = DisplayServer.window_get_size()
 var current_health := max_health
@@ -17,7 +18,7 @@ func _ready() -> void:
 	global_position = angle * resolution.length()/closeness + player.global_position
 
 func _physics_process(delta: float) -> void:
-	global_position = global_position.move_toward(player.global_position, speed)
+	global_position = global_position.move_toward(player.global_position, speed * delta)
 	
 func take_damage(damage: int) -> void:
 	current_health -= damage

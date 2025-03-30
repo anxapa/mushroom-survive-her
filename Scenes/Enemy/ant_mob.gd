@@ -1,4 +1,5 @@
 extends Enemy
+var can_charge = false
 
 func _ready() -> void:
 	super()
@@ -7,3 +8,4 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+		
