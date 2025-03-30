@@ -1,12 +1,14 @@
 extends CharacterBody2D
 class_name Player
 
-@export var invincible_time := 1.0
-@export var speed = 400;
 
+@export var invincible_time := 1.0
+var max_health := 10
 var health := 3
 var is_invincible := false
-
+var nutrient_points := 2.0
+var nutrient_till_next_level := 10.0
+var level := 1
 
 func _ready() -> void:
 	SignalBus.player_death.connect(_on_player_death)
@@ -49,6 +51,12 @@ func take_damage(damage: int) -> void:
 		is_invincible = true
 		await get_tree().create_timer(invincible_time).timeout
 		is_invincible = false
+
+
+func level_up() -> void:
+	nutrient_points = 0.0
+	nutrient_till_next_level *= 1.1
+	level += 1
 
 func _on_player_death() -> void:
 	visible = false

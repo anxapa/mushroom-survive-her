@@ -1,9 +1,108 @@
-[gd_scene load_steps=5 format=3 uid="uid://bimngs7hwmiyc"]
+[gd_scene load_steps=15 format=3 uid="uid://bimngs7hwmiyc"]
 
 [ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/CameraManager.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
+[ext_resource type="Script" uid="uid://bkqyb82lx1mvw" path="res://Scripts/point_bar_manager.gd" id="3_iacmt"]
 [ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/enemy_manager.gd" id="3_jv6wh"]
+[ext_resource type="Texture2D" uid="uid://bcjqe8u5lu1ft" path="res://icon.svg" id="4_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
+bg_color = Color(0.518508, 0.421022, 0.403395, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iacmt"]
+bg_color = Color(0.846795, 0.137728, 0.397636, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.747811, 0.0967473, 0.342228, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ev3c"]
+bg_color = Color(0.730055, 0.576592, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.56745, 0.446087, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maf8m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huasi"]
+bg_color = Color(0.272306, 0.203042, 0.276622, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.181856, 0.165932, 0.277524, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1efj"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.107519, 0.145688, 0.254114, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mai8y"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.217512, 0.279772, 0.455512, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76v2p"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.463136, 0.546088, 0.766512, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
 
 [node name="Main Scene" type="Node2D"]
 
@@ -13,6 +112,246 @@ position = Vector2(960, 540)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 script = ExtResource("1_6l7je")
+
+[node name="Control" type="Control" parent="Camera2D"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_vertical = 2
+
+[node name="PointBarContainer" type="VBoxContainer" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.875
+offset_left = 292.0
+offset_right = -292.0
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("3_iacmt")
+
+[node name="HP Bar" type="ProgressBar" parent="Camera2D/Control/PointBarContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x6ack")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iacmt")
+value = 60.0
+show_percentage = false
+
+[node name="HP Text" type="Label" parent="Camera2D/Control/PointBarContainer/HP Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NP Bar" type="ProgressBar" parent="Camera2D/Control/PointBarContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x6ack")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6ev3c")
+value = 60.0
+show_percentage = false
+
+[node name="NP Text" type="Label" parent="Camera2D/Control/PointBarContainer/NP Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityContainer" type="HBoxContainer" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.025
+anchor_right = 0.7
+anchor_bottom = 0.125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/Control/AbilityContainer"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_maf8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/AbilityContainer/PanelContainer"]
+position = Vector2(6, 9)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="Camera2D/Control/AbilityContainer"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_maf8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/AbilityContainer/PanelContainer2"]
+position = Vector2(6, 9)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="PanelContainer3" type="PanelContainer" parent="Camera2D/Control/AbilityContainer"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_maf8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/AbilityContainer/PanelContainer3"]
+position = Vector2(6, 9)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="PanelContainer4" type="PanelContainer" parent="Camera2D/Control/AbilityContainer"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_maf8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/AbilityContainer/PanelContainer4"]
+position = Vector2(6, 9)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="Panel" type="Panel" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+offset_left = 0.359985
+offset_top = -0.279999
+offset_right = -0.359985
+offset_bottom = 0.279907
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huasi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+
+[node name="Label" type="Label" parent="Camera2D/Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Spice your Spores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Camera2D/Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="AbilityContainer" type="HBoxContainer" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.323975
+offset_top = 26.252
+offset_right = -0.323975
+offset_bottom = -24.748
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="Button" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1efj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/PanelContainer"]
+position = Vector2(28, 28)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="PanelContainer2" type="Button" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1efj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/PanelContainer2"]
+position = Vector2(28, 28)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="PanelContainer3" type="Button" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mai8y")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_76v2p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_m1efj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1efj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/PanelContainer3"]
+position = Vector2(28, 28)
+scale = Vector2(0.75, 0.726562)
+texture = ExtResource("4_6ev3c")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("3_jv6wh")
