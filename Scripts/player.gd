@@ -74,7 +74,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		take_damage((body as Enemy).contact_damage)
 		# if enemy is still touching player after invincibility timeout, deal damage again
 		await get_tree().create_timer(invincible_time).timeout
-		if ($Hurtbox.has_overlapping_bodies() and $Hurtbox.get_overlapping_bodies()[0] == body):
+		if ($Hurtbox.get_overlapping_bodies() and $Hurtbox.get_overlapping_bodies()[0] == body):
 				_on_hurtbox_body_entered(body)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

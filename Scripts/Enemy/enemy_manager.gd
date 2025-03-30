@@ -5,10 +5,11 @@ var base_frequency := 5.0
 # time elapsed in seconds
 var time_elapsed := 0.0
 var can_spawn := true
-@export var cluster_size := 3
+@export var cluster_size := 1
 const ant = preload("res://scenes/Enemy/ant_mob.tscn")
 const charger = preload("res://Scenes/Enemy/charger_mob.tscn")
-var enemies = [charger]
+const shooter = preload("res://Scenes/Enemy/shooter_mob.tscn")
+var enemies = [shooter]
 
 func _ready() -> void:
 	spawn_mob()

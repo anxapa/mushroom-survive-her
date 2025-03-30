@@ -9,7 +9,7 @@ var idle_time := 0.0
 @export var idle_time_before_deletion := 8.0
 
 @export var speed := 100
-@export var damage_amount := 1
+@export var damage_amount := 1.0
 @export_enum("Player", "Enemy") var bullet_owner: String
 @onready var _area2D = $Area2D
 
@@ -18,9 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	movement(delta)
-	
-	if is_idle:
-		idling(delta)
+	idling(delta)
 
 ## Handles removing the bullet if it is idle.
 func idling(delta: float) -> void:

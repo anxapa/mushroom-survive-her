@@ -1,9 +1,14 @@
 extends RigidBody2D
 
 class_name Enemy
-@export var max_health := 6
+@export var max_health := 6.0
 @export var speed = 300.0
 @export var nutrient_point := 1.0
+
+# sprites should be defined in each enemy subclass
+var tank_sprite
+var brute_sprite
+var rogue_sprite
 
 var base_speed = speed
 
@@ -31,3 +36,14 @@ func take_damage(damage: int) -> void:
 func _on_enemy_death() -> void:
 	SignalBus.spawn_nutrient.emit(nutrient_point, global_position)
 	queue_free()
+	
+func make_brute() -> void:
+	contact_damage *= 2
+
+func make_rogue() -> void:
+	base_speed *= 1.2
+	speed = base_speed
+	
+func make_tank() -> void:
+	max_health *= 1.5
+	current_health = max_health

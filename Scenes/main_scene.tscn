@@ -109,6 +109,8 @@ anti_aliasing = false
 
 [node name="Player" parent="." instance=ExtResource("2_jv6wh")]
 position = Vector2(960, 540)
+speed = null
+invincible_time = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)

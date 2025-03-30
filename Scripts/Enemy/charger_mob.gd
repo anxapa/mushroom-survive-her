@@ -14,7 +14,7 @@ var offset = 2
 
 func _ready() -> void:
 	super()
-	contact_damage = 1
+	contact_damage = 2
 
 func _physics_process(delta: float) -> void:
 	# in charge range
@@ -42,4 +42,4 @@ func charge() -> void:
 	charging = false
 	speed = base_speed
 	
-	
+# TODO: Variants

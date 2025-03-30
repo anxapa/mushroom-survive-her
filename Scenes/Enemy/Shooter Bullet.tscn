@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://l752akurwdhi"]
+
+[ext_resource type="Script" uid="uid://b7jo2im1yhas2" path="res://Scripts/Abilities/spore_shot_bullet.gd" id="1_ph5j6"]
+[ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="2_tghe7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5ub2"]
+radius = 12.8062
+
+[node name="Shooter Bullet" type="Node2D"]
+top_level = true
+script = ExtResource("1_ph5j6")
+speed = 500
+bullet_owner = "Enemy"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_e5ub2")
+
+[node name="BlueCircle" type="Sprite2D" parent="."]
+scale = Vector2(0.028, 0.028)
+texture = ExtResource("2_tghe7")
