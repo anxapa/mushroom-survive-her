@@ -2,7 +2,12 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed = 900;
+var max_health := 10
 var health := 3
+var is_invincible := false
+var nutrient_points := 2.0
+var nutrient_till_next_level := 10.0
+var level := 1
 
 func _ready() -> void:
 	GameManager.set_player(self)
@@ -36,7 +41,22 @@ func movement(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damage: int) -> void:
-	health -= damage
+	if not is_invincible:
+		health -= damage
+		if health <= 0:
+			SignalBus.player_death.emit()
+		move_and_slide()
+		is_invincible = true
+		await get_tree().create_timer(invincible_time).timeout
+		is_invincible = false
+
+func level_up() -> void:
+	nutrient_points = 0.0
+	nutrient_till_next_level *= 1.1
+	level += 1
+
+func _on_player_death() -> void:
+	visible = false
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	take_damage((body as Enemy).contact_damage)

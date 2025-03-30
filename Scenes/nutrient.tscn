@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://lc4x1860aorh"]
+
+[ext_resource type="Script" uid="uid://bfos5flyfjrrr" path="res://Scripts/nutrient.gd" id="1_0c6ci"]
+[ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="1_q5r6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0c6ci"]
+
+[node name="Nutrient" type="Area2D"]
+script = ExtResource("1_0c6ci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0c6ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_q5r6r")
