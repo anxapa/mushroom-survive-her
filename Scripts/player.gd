@@ -4,9 +4,9 @@ class_name Player
 @export var speed := 400
 @export var invincible_time := 1.0
 var max_health := 10
-var health := 3
+var health := max_health
 var is_invincible := false
-var nutrient_points := 2.0
+var nutrient_points := 0.0
 var nutrient_till_next_level := 10.0
 var level := 1
 

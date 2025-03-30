@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7u60w64n7wo0"]
+[gd_scene load_steps=3 format=3 uid="uid://c7u60w64n7wo0"]
 
 [ext_resource type="Script" uid="uid://bca7pn3pf6ovr" path="res://Scripts/Abilities/ability_boom_shroom.gd" id="1_acrhq"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_acrhq"]
+radius = 300.0
+
 [node name="BoomShroomAbility" type="Node2D"]
 script = ExtResource("1_acrhq")
+damage = 5.0
+range = 500
+is_activable = true
+max_upgrade_level = 5
+cooldown = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_acrhq")
