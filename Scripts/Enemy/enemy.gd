@@ -16,6 +16,7 @@ var can_move := true
 var resolution = DisplayServer.window_get_size()
 var current_health := max_health
 var player = GameManager.get_player()
+@onready var move_target = player.global_position
 var contact_damage
 
 func _ready() -> void:
@@ -27,8 +28,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		global_position = global_position.move_toward(player.global_position, speed * delta)
-	
+		global_position = global_position.move_toward(move_target, speed * delta)
+	move_target = player.global_position
 func take_damage(damage: float) -> void:
 	current_health -= damage
 	
