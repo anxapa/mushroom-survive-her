@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dth8ddinp3kpy"
-path="res://.godot/imported/2024-10-10_broosket.png-61b27993281c959a8a0d4820c8eb410c.ctex"
+path="res://.godot/imported/2024-10-10_broosket.png-0955b96206b245116efc34cfc560c70f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Enemy/2024-10-10_broosket.png"
-dest_files=["res://.godot/imported/2024-10-10_broosket.png-61b27993281c959a8a0d4820c8eb410c.ctex"]
+source_file="res://Sprites/2024-10-10_broosket.png"
+dest_files=["res://.godot/imported/2024-10-10_broosket.png-0955b96206b245116efc34cfc560c70f.ctex"]
 
 [params]
 

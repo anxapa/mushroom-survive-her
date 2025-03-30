@@ -54,17 +54,32 @@ func take_damage(damage: int) -> void:
 
 
 func level_up() -> void:
-	nutrient_points = 0.0
+	nutrient_points = fmod(nutrient_points, nutrient_till_next_level)
 	nutrient_till_next_level *= 1.1
 	level += 1
+	
+	if(nutrient_points > nutrient_till_next_level):
+		level_up()
+
+func gain_nutrient_points(points: float) -> void:
+	nutrient_points += points
+	if (nutrient_points > nutrient_till_next_level):
+		level_up()
 
 func _on_player_death() -> void:
 	visible = false
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	take_damage((body as Enemy).contact_damage)
-	# if enemy is still touching player after invincibility timeout, deal damage again
-	await get_tree().create_timer(invincible_time).timeout
-	if ($Hurtbox.has_overlapping_bodies()):
-		if ($Hurtbox.get_overlapping_bodies()[0] == body):
-			_on_hurtbox_body_entered(body)
+	if body is Enemy:
+		take_damage((body as Enemy).contact_damage)
+		# if enemy is still touching player after invincibility timeout, deal damage again
+		await get_tree().create_timer(invincible_time).timeout
+		if ($Hurtbox.has_overlapping_bodies() and $Hurtbox.get_overlapping_bodies()[0] == body):
+				_on_hurtbox_body_entered(body)
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	 # Handles nutrient absorbing
+	if area is Nutrient:
+		var nutrient = area as Nutrient
+		gain_nutrient_points(nutrient.nutrient_point)
+		nutrient.queue_free()

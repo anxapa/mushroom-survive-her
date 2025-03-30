@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bimngs7hwmiyc"]
+[gd_scene load_steps=16 format=3 uid="uid://bimngs7hwmiyc"]
 
-[ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/CameraManager.gd" id="1_6l7je"]
+[ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
 [ext_resource type="Script" uid="uid://bkqyb82lx1mvw" path="res://Scripts/point_bar_manager.gd" id="3_iacmt"]
-[ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/enemy_manager.gd" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/Enemy/enemy_manager.gd" id="3_jv6wh"]
 [ext_resource type="Texture2D" uid="uid://bcjqe8u5lu1ft" path="res://icon.svg" id="4_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
+[ext_resource type="Script" uid="uid://p4yplfr2qpqn" path="res://Scripts/nutrient_manager.gd" id="6_maf8m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
 bg_color = Color(0.518508, 0.421022, 0.403395, 1)
@@ -354,8 +355,12 @@ centered = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemyManager" type="Node2D" parent="."]
+[node name="Enemy Manager" type="Node2D" parent="."]
 script = ExtResource("3_jv6wh")
+cluster_size = 10
+
+[node name="Nutrient Manager" type="Node2D" parent="."]
+script = ExtResource("6_maf8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(328.048, 202.372)

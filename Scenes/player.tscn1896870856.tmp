@@ -12,6 +12,8 @@ radius = 100.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
+speed = null
+invincible_time = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f60y1")
@@ -25,7 +27,7 @@ script = ExtResource("3_6t5aa")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_f60y1")

@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	#currently charging
 	else:
 		global_position = global_position.move_toward(target, charge_speed * delta)
-		charge_speed -= charge_speed/5 * charge_time * delta
+		charge_speed -= charge_speed/5.0 * charge_time * delta
 		if global_position == target or charge_speed < base_speed:
 			(charge_end as SceneTreeTimer).set_time_left(0)
 func charge() -> void:
@@ -35,7 +35,7 @@ func charge() -> void:
 	target = global_position + (player.global_position - global_position)*offset
 	await get_tree().create_timer(chargeup_time).timeout
 	charging = true
-	charge_end = get_tree().create_timer(charge_time + randi_range(0.1, 0.4))
+	charge_end = get_tree().create_timer(charge_time + randf_range(0.1, 0.4))
 	await charge_end.timeout
 	charge_speed = 1000
 	can_charge = true

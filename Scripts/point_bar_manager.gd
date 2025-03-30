@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 	
 	np_bar.max_value = player.nutrient_till_next_level
 	np_bar.value = player.nutrient_points
-	np_text.text = str(player.nutrient_points) + " / " + str(player.nutrient_till_next_level)
+	np_text.text = "Level %s" % str(player.level)

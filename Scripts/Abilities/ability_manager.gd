@@ -1,6 +1,10 @@
 extends Node2D
 
 const spore_shot_ability_scene = preload("res://Scenes/Abilities/Spore Shot Ability.tscn")
+enum Ability {Spore_Shot, Mushroom_Cloud, Stun_Spore}
+var ability_dictionary = {
+	Ability.Spore_Shot: spore_shot_ability_scene
+}
 
 ## Adds ability to the player.
 ## If the ability already exists then upgrade it.

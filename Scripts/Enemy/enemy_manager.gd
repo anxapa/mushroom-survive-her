@@ -5,21 +5,20 @@ var base_frequency := 5.0
 # time elapsed in seconds
 var time_elapsed := 0.0
 var can_spawn := true
-var cluster_size := 3
+@export var cluster_size := 3
 const ant = preload("res://scenes/Enemy/ant_mob.tscn")
 const charger = preload("res://Scenes/Enemy/charger_mob.tscn")
-var enemies = [ant]
+var enemies = [charger]
 
 func _ready() -> void:
-	enemies[0] = charger
 	spawn_mob()
 	
 func _physics_process(delta: float) -> void:
-	#if can_spawn:
-		#spawn_mob()
-	#time_elapsed += delta
-	#if time_elapsed > 5 and not enemies.has(charger):
-		#enemies.push_back(charger)
+	if can_spawn:
+		spawn_mob()
+	time_elapsed += delta
+	if time_elapsed > 5 and not enemies.has(charger):
+		enemies.push_back(charger)
 	pass
 		
 func spawn_mob() -> void:

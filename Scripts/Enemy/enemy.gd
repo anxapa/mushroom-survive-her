@@ -3,6 +3,8 @@ extends RigidBody2D
 class_name Enemy
 @export var max_health := 6
 @export var speed = 300.0
+@export var nutrient_point := 1.0
+
 var base_speed = speed
 
 var resolution = DisplayServer.window_get_size()
@@ -24,4 +26,8 @@ func take_damage(damage: int) -> void:
 	current_health -= damage
 	
 	if current_health == 0:
-		queue_free()
+		_on_enemy_death()
+
+func _on_enemy_death() -> void:
+	SignalBus.spawn_nutrient.emit(nutrient_point, global_position)
+	queue_free()

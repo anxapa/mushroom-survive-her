@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddb5jva68ejkq"
-path="res://.godot/imported/Chupo_Kite_Sprite_128x.png-57bf43226626995f8aabbf941c4496e2.ctex"
+path="res://.godot/imported/Chupo_Kite_Sprite_128x.png-f489530acf3bb8bffc581befa0cd70d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Chupo_Kite_Sprite_128x.png"
-dest_files=["res://.godot/imported/Chupo_Kite_Sprite_128x.png-57bf43226626995f8aabbf941c4496e2.ctex"]
+source_file="res://Sprites/Chupo_Kite_Sprite_128x.png"
+dest_files=["res://.godot/imported/Chupo_Kite_Sprite_128x.png-f489530acf3bb8bffc581befa0cd70d0.ctex"]
 
 [params]
 
