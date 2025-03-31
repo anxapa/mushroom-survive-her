@@ -15,6 +15,8 @@ var button_choices : Array[int]
 func _ready() -> void:
 	SignalBus.player_levelup.connect(_on_player_levelup)
 	buttons[0].button_down.connect(_choice_button_1_down)
+	buttons[1].button_down.connect(_choice_button_2_down)
+	buttons[2].button_down.connect(_choice_button_3_down)
 	
 	for button in buttons:
 		button.disabled = false
