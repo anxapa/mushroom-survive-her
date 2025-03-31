@@ -4,10 +4,11 @@ extends Enemy
 
 var can_charge := true
 var chargeup_time := 0.5
-var charge_time := 2
+var charge_time := 1
 var charging := false
 var charge_end
-var charge_speed = 900
+var charge_speed = 700
+var charge_cooldown = 2
 var target = player.global_position
 # values less than 1 stop the charge short
 var offset = 3
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	# not charging
 	elif not charging:
 		super(delta)
+		charge_cooldown -= delta
 	#currently charging
 	else:
 		global_position = global_position.move_toward(target, charge_speed * delta)
@@ -41,10 +43,11 @@ func charge() -> void:
 	set_collision_layer_value(2, false)
 	charge_end = get_tree().create_timer(charge_time + randf_range(0.1, 0.4))
 	await charge_end.timeout
-	charge_speed = 1000
+	charge_speed = 700
 	can_charge = true
 	set_collision_mask_value(2, true)
 	set_collision_layer_value(2, true)
 	speed = base_speed
+	charge_cooldown = 2
 	
 # TODO: Variants
