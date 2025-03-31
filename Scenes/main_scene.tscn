@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://bimngs7hwmiyc"]
 
-[ext_resource type="Script" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
+[ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
 [ext_resource type="Script" uid="uid://bkqyb82lx1mvw" path="res://Scripts/point_bar_manager.gd" id="3_iacmt"]
 [ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/Enemy/enemy_manager.gd" id="3_jv6wh"]
 [ext_resource type="Texture2D" uid="uid://bcjqe8u5lu1ft" path="res://icon.svg" id="4_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
-[ext_resource type="Script" uid="uid://qk6e6cjx0o0o" path="res://Scripts/timer_manager.gd" id="5_huasi"]
+[ext_resource type="Script" path="res://Scripts/timer_manager.gd" id="5_huasi"]
 [ext_resource type="Script" uid="uid://p4yplfr2qpqn" path="res://Scripts/Pickups/pickup_manager.gd" id="6_maf8m"]
-[ext_resource type="Script" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
+[ext_resource type="Script" uid="uid://dpss1evcr21cs" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
 bg_color = Color(0.518508, 0.421022, 0.403395, 1)
