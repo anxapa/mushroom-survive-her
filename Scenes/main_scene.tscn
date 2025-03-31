@@ -1,18 +1,17 @@
-[gd_scene load_steps=22 format=4 uid="uid://bimngs7hwmiyc"]
+[gd_scene load_steps=21 format=4 uid="uid://bimngs7hwmiyc"]
 
-[ext_resource type="Script" uid="uid://55s2jxb8uvys" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
+[ext_resource type="Script" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
 [ext_resource type="Texture2D" uid="uid://chhtdth8v1qli" path="res://Sprites/mushroom_girl.png" id="2_76v2p"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
 [ext_resource type="Script" uid="uid://bkqyb82lx1mvw" path="res://Scripts/point_bar_manager.gd" id="3_iacmt"]
 [ext_resource type="Script" uid="uid://bbtg0rxto4lhx" path="res://Scripts/Enemy/enemy_manager.gd" id="3_jv6wh"]
 [ext_resource type="Texture2D" uid="uid://bcjqe8u5lu1ft" path="res://icon.svg" id="4_6ev3c"]
-[ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
-[ext_resource type="Script" path="res://Scripts/timer_manager.gd" id="5_huasi"]
+[ext_resource type="Script" uid="uid://qk6e6cjx0o0o" path="res://Scripts/timer_manager.gd" id="5_huasi"]
 [ext_resource type="Texture2D" uid="uid://diiqycpvwtcru" path="res://Sprites/spore_shot.png" id="5_ioaeq"]
 [ext_resource type="Script" uid="uid://bwejjxt784dg3" path="res://Scripts/Abilities/level_up_panel.gd" id="5_mai8y"]
 [ext_resource type="Script" uid="uid://p4yplfr2qpqn" path="res://Scripts/Pickups/pickup_manager.gd" id="6_maf8m"]
 [ext_resource type="Script" uid="uid://dpss1evcr21cs" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
-[ext_resource type="TileSet" uid="uid://cndbmtp65vdqm" path="res://Sprites/world.tres" id="13_ioaeq"]
+[ext_resource type="TileSet" uid="uid://bu4wmfjjhan1g" path="res://Sprites/world.tres" id="13_ioaeq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
 bg_color = Color(0.518508, 0.421022, 0.403395, 1)
@@ -418,31 +417,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_huasi")
 
+[node name="Panel2" type="Panel" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -0.360016
+offset_top = -0.440002
+offset_right = -0.840088
+offset_bottom = -0.360046
+
 [node name="Enemy Manager" type="Node2D" parent="."]
 script = ExtResource("3_jv6wh")
 
 [node name="Pickup Manager" type="Node2D" parent="."]
 script = ExtResource("6_maf8m")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(328.048, 202.372)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_x6ack")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1516.45, 218.878)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_x6ack")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(1436.07, 676.249)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_x6ack")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(517.367, 670.542)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_x6ack")
 
 [node name="Enemy Manager (DEBUG)" type="Node2D" parent="."]
 script = ExtResource("8_huasi")

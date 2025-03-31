@@ -3,7 +3,7 @@ class_name Player
 
 @export var speed := 400
 @export var invincible_time := 1.0
-var max_health := 10
+var max_health := 20
 var health := max_health
 var is_invincible := false
 var nutrient_points := 0.0
@@ -67,6 +67,7 @@ func level_up() -> void:
 	nutrient_till_next_level *= 1.1
 	level += 1
 	make_invincible(5)
+	health = max_health
 	SignalBus.player_levelup.emit()
 	
 	if(nutrient_points > nutrient_till_next_level):

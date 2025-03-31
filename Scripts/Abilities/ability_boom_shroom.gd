@@ -53,7 +53,7 @@ func change_level(level: int) -> void:
 		2:
 			damage *= 2
 		3:
-			explosion_range = range*1.3/1
+			explosion_range = range * 1.3/1
 		4:
 			damage *= 2
 		5:
