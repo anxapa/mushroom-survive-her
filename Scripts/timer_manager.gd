@@ -6,3 +6,6 @@ func _process(delta: float) -> void:
 	var int_time := time as int
 	text = "%02d:%02d" % [int_time / 60, int_time % 60]
 	time -= delta
+	
+	if time <= 0:
+		SignalBus.player_win.emit()
