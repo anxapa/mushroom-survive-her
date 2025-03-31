@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c04vr0krdi42d"]
+
+[ext_resource type="Script" uid="uid://dwjd6ywjiosxv" path="res://Scripts/Pickups/mystealium.gd" id="1_ygqjv"]
+[ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="2_77vya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbnxk"]
+
+[node name="Mystealium" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ygqjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xbnxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.591476, 0.47452, 1)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_77vya")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

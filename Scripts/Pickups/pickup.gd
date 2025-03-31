@@ -1,7 +1,6 @@
 extends Area2D
-class_name Nutrient
+class_name Pickup
 
-var nutrient_point := 1.0
 var is_near_player := false
 var suction_speed := 5.0
 @onready var player := GameManager.get_player()

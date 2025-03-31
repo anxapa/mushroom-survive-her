@@ -30,14 +30,20 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		global_position = global_position.move_toward(move_target, speed * delta)
 	move_target = player.global_position
+
 func take_damage(damage: float) -> void:
 	current_health -= damage
 	
 	if current_health <= 0:
 		_on_enemy_death()
+	
+	# Flash red on hit
+	modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color.WHITE
 
 func _on_enemy_death() -> void:
-	SignalBus.spawn_nutrient.emit(nutrient_point, global_position)
+	SignalBus.enemy_death.emit(nutrient_point, global_position)
 	queue_free()
 	
 func make_brute() -> void:

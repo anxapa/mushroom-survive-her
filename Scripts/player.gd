@@ -48,10 +48,18 @@ func take_damage(damage: int) -> void:
 		if health <= 0:
 			SignalBus.player_death.emit()
 		move_and_slide()
-		is_invincible = true
-		await get_tree().create_timer(invincible_time).timeout
-		is_invincible = false
+		make_invincible(invincible_time)
+		
+		# Flash red on hit
+		modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		modulate = Color.WHITE
+		
 
+func make_invincible (time: float) -> void:
+	is_invincible = true
+	await get_tree().create_timer(time).timeout
+	is_invincible = false
 
 func level_up() -> void:
 	nutrient_points = fmod(nutrient_points, nutrient_till_next_level)
@@ -83,3 +91,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		var nutrient = area as Nutrient
 		gain_nutrient_points(nutrient.nutrient_point)
 		nutrient.queue_free()
+	elif area is Mystealium:
+		SignalBus.mystealium_pickup.emit()
+		area.queue_free()
