@@ -1,17 +1,17 @@
 extends Node2D
+
 var player = GameManager.get_player()
-#var rng = RandomNumberGenerator.new()
 var base_frequency := 11.0
 # time elapsed in seconds
 var time_elapsed := 0.0
 var can_spawn := true
 var difficulty = 1
 @export var cluster_size := 1
-const ant = preload("res://scenes/Enemy/ant_mob.tscn")
-const charger = preload("res://Scenes/Enemy/charger_mob.tscn")
-const shooter = preload("res://Scenes/Enemy/shooter_mob.tscn")
+var ant = load("res://Scenes/Enemy/ant_mob.tscn")
+var charger = load("res://Scenes/Enemy/charger_mob.tscn")
+var shooter = load("res://Scenes/Enemy/shooter_mob.tscn")
 const minute := 60.0
-var enemies := []
+var enemies = []
 
 func _ready() -> void:
 	mob_change(1, 0, 0)
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	if can_spawn:
 		spawn_mob()
 	time_elapsed += delta
-	if time_elapsed/60 == difficulty:
+	if int(time_elapsed*10)/60 == difficulty:
 		difficulty_change()
 		
 func spawn_mob() -> void:

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://qk6e6cjx0o0o" path="res://Scripts/timer_manager.gd" id="5_huasi"]
 [ext_resource type="Script" uid="uid://bwejjxt784dg3" path="res://Scripts/Abilities/level_up_panel.gd" id="5_mai8y"]
 [ext_resource type="Script" uid="uid://p4yplfr2qpqn" path="res://Scripts/Pickups/pickup_manager.gd" id="6_maf8m"]
-[ext_resource type="Script" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
+[ext_resource type="Script" uid="uid://dpss1evcr21cs" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
 bg_color = Color(0.518508, 0.421022, 0.403395, 1)

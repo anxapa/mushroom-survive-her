@@ -10,7 +10,7 @@ var charge_end
 var charge_speed = 1000
 var target = player.global_position
 # values less than 1 stop the charge short
-var offset = 2
+var offset = 3
 
 func _ready() -> void:
 	super()
@@ -36,11 +36,13 @@ func charge() -> void:
 	target = global_position + (player.global_position - global_position)*offset
 	await get_tree().create_timer(chargeup_time).timeout
 	charging = true
+	$CollisionShape2D.disabled = true
 	charge_end = get_tree().create_timer(charge_time + randf_range(0.1, 0.4))
 	await charge_end.timeout
 	charge_speed = 1000
 	can_charge = true
 	charging = false
+	$CollisionShape2D.disabled = false
 	speed = base_speed
 	
 # TODO: Variants
