@@ -2,7 +2,7 @@ extends RigidBody2D
 
 class_name Enemy
 @export var max_health := 6.0
-@export var speed = 300.0
+@export var speed = 250.0
 @export var nutrient_point := 1.0
 
 # sprites should be defined in each enemy subclass

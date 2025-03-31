@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bimngs7hwmiyc"]
+[gd_scene load_steps=18 format=3 uid="uid://bimngs7hwmiyc"]
 
 [ext_resource type="Script" path="res://Scripts/camera_manager.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://brmati1s0m1v3" path="res://Scenes/player.tscn" id="2_jv6wh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bc4t63efyr7m4" path="res://Sprites/blue circle.png" id="4_x6ack"]
 [ext_resource type="Script" uid="uid://qk6e6cjx0o0o" path="res://Scripts/timer_manager.gd" id="5_huasi"]
 [ext_resource type="Script" uid="uid://p4yplfr2qpqn" path="res://Scripts/Pickups/pickup_manager.gd" id="6_maf8m"]
+[ext_resource type="Script" path="res://Scripts/enemy_manager_(debug).gd" id="8_huasi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ack"]
 bg_color = Color(0.518508, 0.421022, 0.403395, 1)
@@ -395,3 +396,6 @@ texture = ExtResource("4_x6ack")
 position = Vector2(517.367, 670.542)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_x6ack")
+
+[node name="Enemy Manager (DEBUG)" type="Node2D" parent="."]
+script = ExtResource("8_huasi")
