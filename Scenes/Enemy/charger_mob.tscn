@@ -7,7 +7,7 @@
 radius = 48.6
 
 [node name="ChargerMob" type="RigidBody2D"]
-collision_layer = 2
+collision_layer = 10
 collision_mask = 2
 gravity_scale = 0.0
 lock_rotation = true

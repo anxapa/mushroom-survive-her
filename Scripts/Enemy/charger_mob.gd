@@ -15,6 +15,7 @@ var offset = 3
 func _ready() -> void:
 	super()
 	contact_damage = 2
+	base_speed *= 0.85
 
 func _physics_process(delta: float) -> void:
 	# in charge range
@@ -36,13 +37,14 @@ func charge() -> void:
 	target = global_position + (player.global_position - global_position)*offset
 	await get_tree().create_timer(chargeup_time).timeout
 	charging = true
-	$CollisionShape2D.disabled = true
+	set_collision_mask_value(2, false)
+	set_collision_layer_value(2, false)
 	charge_end = get_tree().create_timer(charge_time + randf_range(0.1, 0.4))
 	await charge_end.timeout
 	charge_speed = 1000
 	can_charge = true
-	charging = false
-	$CollisionShape2D.disabled = false
+	set_collision_mask_value(2, true)
+	set_collision_layer_value(2, true)
 	speed = base_speed
 	
 # TODO: Variants
