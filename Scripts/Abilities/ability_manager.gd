@@ -23,6 +23,13 @@ var ability_levels := {
 	BOOM_SHROOM: 0,
 }
 
+var ability_names := {
+	SPORE_SHOT: "Spore Shot",
+	MUSHROOM_CLOUD: "Mushroom Cloud",
+	STUN_SPORE: "Stun Spore",
+	BOOM_SHROOM: "Boom Shroom",
+}
+
 var current_abilities : Array[int] 
 
 @export var level_up_panel : Panel

@@ -239,6 +239,7 @@ texture = ExtResource("4_6ev3c")
 centered = false
 
 [node name="Panel" type="Panel" parent="Camera2D/Control" node_paths=PackedStringArray("ability_manager")]
+process_mode = 3
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -313,6 +314,16 @@ scale = Vector2(0.75, 0.726562)
 texture = ExtResource("4_6ev3c")
 centered = false
 
+[node name="Ability Name" type="Label" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/Ability Choice 1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Ability Choice 2" type="Button" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -336,6 +347,16 @@ scale = Vector2(0.75, 0.726562)
 texture = ExtResource("4_6ev3c")
 centered = false
 
+[node name="Ability Name" type="Label" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/Ability Choice 2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Ability Choice 3" type="Button" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -358,6 +379,16 @@ position = Vector2(28, 28)
 scale = Vector2(0.75, 0.726562)
 texture = ExtResource("4_6ev3c")
 centered = false
+
+[node name="Ability Name" type="Label" parent="Camera2D/Control/Panel/VBoxContainer/VSeparator/AbilityContainer/Ability Choice 3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/Panel/VBoxContainer"]
 layout_mode = 2

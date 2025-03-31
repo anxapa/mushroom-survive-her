@@ -65,6 +65,7 @@ func level_up() -> void:
 	nutrient_points = fmod(nutrient_points, nutrient_till_next_level)
 	nutrient_till_next_level *= 1.1
 	level += 1
+	make_invincible(5)
 	SignalBus.player_levelup.emit()
 	
 	if(nutrient_points > nutrient_till_next_level):

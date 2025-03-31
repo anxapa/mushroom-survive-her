@@ -36,12 +36,26 @@ func assign_button_choices() -> void:
 	while button_choices.size() < 3:
 		button_choices.push_back(-1)
 
+func assign_button_text() -> void:
+	for i in 3:
+		var button = buttons[i]
+		var label = button.get_child(1) as Label
+		if button_choices[i] != -1:
+			label.text = ability_manager.ability_names[button_choices[i]]
+		else:
+			label.text = "None"
+
+func resume() -> void:
+	visible = false
+	get_tree().paused = false
+
 func _on_player_levelup() -> void:
 	visible = true
 	get_available_abilities()
 	assign_button_choices()
-	# make the buttons return to the ability manager
-	# hide again
+	assign_button_text()
+	
+	get_tree().paused = true
 
 func _choice_button_1_down() -> void:
 	if button_choices[0] == -1:
@@ -49,7 +63,7 @@ func _choice_button_1_down() -> void:
 	else:
 		var ability := button_choices[0]
 		ability_manager.add_ability(ability)
-		visible = false
+		resume()
 
 func _choice_button_2_down() -> void:
 	if button_choices[1] == -1:
@@ -57,7 +71,7 @@ func _choice_button_2_down() -> void:
 	else:
 		var ability := button_choices[1]
 		ability_manager.add_ability(ability)
-		visible = false
+		resume()
 
 func _choice_button_3_down() -> void:
 	if button_choices[2] == -1:
@@ -65,4 +79,4 @@ func _choice_button_3_down() -> void:
 	else:
 		var ability := button_choices[2]
 		ability_manager.add_ability(ability)
-		visible = false
+		resume()
