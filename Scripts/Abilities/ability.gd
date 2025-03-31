@@ -9,6 +9,9 @@ var upgrade_level := 1
 var current_cooldown_time : float
 @export var cooldown : float
 
+func _ready() -> void:
+	change_level(1)
+
 func _process(delta: float) -> void:
 	# Cooldown handling for activatable abilities.
 	if is_activable:
@@ -21,8 +24,12 @@ func _process(delta: float) -> void:
 ## Upgrades the ability.
 func upgrade() -> void:
 	if upgrade_level + 1 > max_upgrade_level:
-		print("ERROR: Ability upgrade code not overridden.")
+		print("Error! Max upgrade reached.")
 	upgrade_level += 1;
+	change_level(upgrade_level)
+	
+func change_level(level: int) -> void:
+	pass
 
 ## Activates ability if activatable.
 func activate_ability() -> void:

@@ -7,6 +7,7 @@ extends Ability
 const bullet_scene = preload("res://Scenes/Abilities/Spore Shot Bullet.tscn")
 
 func _ready():
+	super()
 	change_range(range)
 
 func activate_ability() -> void:
@@ -43,3 +44,10 @@ func shoot(enemy: Node2D) -> void:
 	bullet.global_position = global_position
 	bullet.damage_amount = damage
 	bullet.set_direction(enemy.global_position - global_position)
+
+func change_level(level: int) -> void:
+	match level:
+		1:
+			damage = 2.0
+			range = 300
+			cooldown = 0.4
