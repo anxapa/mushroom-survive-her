@@ -34,9 +34,10 @@ func movement(delta: float) -> void:
 	#elif direction.y < 0:
 		#animated_sprite.play("look_up")
 		#interact_area2D.position = Vector2(0, -64)
-	#elif direction.x > 0:
-		#animated_sprite.play("look_right")
-		#interact_area2D.position = Vector2(64, 0)
+	if direction.x > 0:
+		$Sprite2D.flip_h = true
+	elif direction.x < 0:
+		$Sprite2D.flip_h = false
 	#elif direction.x < 0:
 		#animated_sprite.play("look_left")
 		#interact_area2D.position = Vector2(-64, 0)

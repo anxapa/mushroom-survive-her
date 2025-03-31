@@ -1,12 +1,12 @@
 extends Node2D
 
 var player = GameManager.get_player()
-var base_frequency := 11.0
+var base_frequency := 9.0
 # time elapsed in seconds
 var time_elapsed := 0.0
 var can_spawn := true
 var difficulty = 1
-@export var cluster_size := 1
+var cluster_size := 2
 var ant = load("res://Scenes/Enemy/ant_mob.tscn")
 var charger = load("res://Scenes/Enemy/charger_mob.tscn")
 var shooter = load("res://Scenes/Enemy/shooter_mob.tscn")
@@ -15,13 +15,15 @@ var enemies = []
 
 func _ready() -> void:
 	mob_change(1, 0, 0)
-	spawn_mob()
+	for n in 5:
+		spawn_mob()
 	
 func _physics_process(delta: float) -> void:
 	if can_spawn:
 		spawn_mob()
 	time_elapsed += delta
-	if int(time_elapsed*10)/60 == difficulty:
+	if int(time_elapsed)/60 >= difficulty:
+		print("test")
 		difficulty_change()
 		
 func spawn_mob() -> void:
@@ -32,7 +34,7 @@ func spawn_mob() -> void:
 		add_child(enemy)
 		if difficulty >= 4:
 			make_variant(enemy)
-	await get_tree().create_timer(base_frequency - difficulty).timeout
+	await get_tree().create_timer(base_frequency - 0.5*difficulty).timeout
 	can_spawn = true
 	
 func make_variant(enemy: Enemy) -> void:
@@ -61,7 +63,9 @@ func difficulty_change() -> void:
 	match difficulty:
 		2:
 			mob_change(2, 1, 0)
+			cluster_size += 2
 		3:
+			cluster_size += 2
 			mob_change(4, 5, 0)
 		4:
 			await get_tree().create_timer(10).timeout

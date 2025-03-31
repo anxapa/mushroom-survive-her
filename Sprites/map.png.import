@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drgonfjiw4pi7"
-path="res://.godot/imported/zahra-Org1.jpg-5f6a68da43bbb36433efc78b4061a514.ctex"
+uid="uid://b2ojdqr5b7txf"
+path="res://.godot/imported/map.png-32d482d95d6f49a433a90cf68d36ea31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/zahra-Org1.jpg"
-dest_files=["res://.godot/imported/zahra-Org1.jpg-5f6a68da43bbb36433efc78b4061a514.ctex"]
+source_file="res://Sprites/map.png"
+dest_files=["res://.godot/imported/map.png-32d482d95d6f49a433a90cf68d36ea31.ctex"]
 
 [params]
 

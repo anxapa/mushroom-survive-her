@@ -7,10 +7,10 @@ var upgrade_level := 1
 @export var max_upgrade_level : int
 
 var current_cooldown_time : float
-@export var cooldown : float
+@export var cooldown := 1.0
 
 func _ready() -> void:
-	change_level(1)
+	change_level(upgrade_level)
 
 func _process(delta: float) -> void:
 	# Cooldown handling for activatable abilities.

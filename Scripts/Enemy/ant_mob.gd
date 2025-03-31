@@ -4,7 +4,6 @@ func _ready() -> void:
 	tank_sprite = preload("res://Sprites/Chupo_Kite_Sprite_128x.png")
 	super()
 	contact_damage = 1
-	make_tank()
 
 func _physics_process(delta: float) -> void:
 	super(delta)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://it8wdcspy42o"]
 
 [ext_resource type="Script" uid="uid://d0v5qow1cy3gi" path="res://Scripts/Enemy/charger_mob.gd" id="1_e6pvd"]
-[ext_resource type="Texture2D" uid="uid://dth8ddinp3kpy" path="res://Sprites/2024-10-10_broosket.png" id="2_mhiuj"]
+[ext_resource type="Texture2D" uid="uid://ctabcvwbwwu56" path="res://Sprites/beetle.png" id="2_e6pvd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj4xj"]
-radius = 48.6
+radius = 33.2415
 
 [node name="ChargerMob" type="RigidBody2D"]
 collision_layer = 10
@@ -16,9 +16,8 @@ nutrient_point = 3.5
 metadata/_custom_type_script = "uid://dieymoq7w5kit"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.500001, -0.674441)
-scale = Vector2(0.0474604, 0.0474604)
-texture = ExtResource("2_mhiuj")
+scale = Vector2(0.640625, 0.640625)
+texture = ExtResource("2_e6pvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hj4xj")

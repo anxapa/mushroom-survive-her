@@ -48,6 +48,12 @@ func shoot(enemy: Node2D) -> void:
 func change_level(level: int) -> void:
 	match level:
 		1:
-			damage = 2.0
-			range = 300
 			cooldown = 0.4
+		2:
+			damage *= 2
+		3:
+			range = range*1.3/1
+		4:
+			damage *= 2
+		5:
+			cooldown -= 0.1

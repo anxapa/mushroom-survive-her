@@ -4,10 +4,10 @@ extends Enemy
 
 var can_charge := true
 var chargeup_time := 0.5
-var charge_time := 5
+var charge_time := 2
 var charging := false
 var charge_end
-var charge_speed = 1000
+var charge_speed = 900
 var target = player.global_position
 # values less than 1 stop the charge short
 var offset = 3

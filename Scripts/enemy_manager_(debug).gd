@@ -12,6 +12,7 @@ const shooter = preload("res://Scenes/Enemy/shooter_mob.tscn")
 var enemies = [charger]
 
 func _ready() -> void:
+	queue_free()
 	spawn_mob()
 func _physics_process(delta: float) -> void:
 	if can_spawn:

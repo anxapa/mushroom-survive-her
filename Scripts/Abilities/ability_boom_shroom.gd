@@ -1,6 +1,7 @@
 extends Ability
 
 @export var damage := 1.0
+@export var explosion_range := 100
 @export var range := 200
 @onready var _area2D := $Area2D
 
@@ -42,4 +43,19 @@ func shoot(enemy: Node2D) -> void:
 	add_child(bullet)
 	bullet.global_position = global_position
 	bullet.damage_amount = damage
+	bullet.explosion_range = explosion_range
 	bullet.set_direction(enemy.global_position - global_position)
+	
+func change_level(level: int) -> void:
+	match level:
+		1:
+			cooldown = 2.5
+		2:
+			damage *= 2
+		3:
+			explosion_range = range*1.3/1
+		4:
+			damage *= 2
+		5:
+			cooldown -= 0.5
+			

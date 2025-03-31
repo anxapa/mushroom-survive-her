@@ -11,3 +11,16 @@ func activate_ability() -> void:
 		if body is Enemy:
 			var enemy = body as Enemy
 			enemy.paralyze(paralyze_time)
+
+func change_level(level: int) -> void:
+	match level:
+		1:
+			cooldown = 5
+		2:
+			paralyze_time += 1
+		3:
+			cooldown -= 1
+		4:
+			cooldown -= 0.5
+		5:
+			paralyze_time += 0.5

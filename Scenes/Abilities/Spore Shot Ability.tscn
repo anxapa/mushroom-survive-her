@@ -7,15 +7,12 @@ radius = 250.0
 
 [node name="SporeShotAbility" type="Node2D"]
 script = ExtResource("1_rjmdd")
-damage = 6.0
-range = 300
 is_activable = true
 max_upgrade_level = 5
-cooldown = 0.4
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_c6mur")
